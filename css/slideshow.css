@@ -1,0 +1,21 @@
+#outerTable td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+#innerTable td {
+  text-align: center;
+  vertical-align: middle;
+  width: 674px; /* 95% of 674 is 640, 540 is 512 */
+  height: 674px;
+  border-style: groove;
+  border-width: 3px;
+  box-shadow: 5px 5px 5px #444444;
+  background-color: #000000;
+}
+
+img.tripPix {
+  display: block;
+  margin: auto;
+}
