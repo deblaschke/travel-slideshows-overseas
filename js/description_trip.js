@@ -105,6 +105,7 @@ function getDescription(path) {
           break;
 
         // Autumn Vacation cases
+        case "1990Trip":
         case "1991FallFoliage":
         case "1992FallFoliage":
         case "1993Homecoming":
