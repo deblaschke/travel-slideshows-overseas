@@ -1,9 +1,13 @@
 // Indicates manual (true) or automatic (false) slideshow
-var MANUAL_SLIDESHOW   = false;
+var MANUAL_SLIDESHOW     = false;
 // Automatic slideshow interval in milliseconds
-var SLIDESHOW_INTERVAL = 3000;
+var SLIDESHOW_INTERVAL   = 3000;
 // Indicates audio (true) or no audio (false) during slideshow
-var SLIDESHOW_AUDIO    = false;
+var SLIDESHOW_AUDIO      = false;
+// Indicates beginning slide (-1 indicates none)
+var SLIDESHOW_INDEX_FROM = -1;
+// Indicates ending slide (-1 indicates none)
+var SLIDESHOW_INDEX_TO   = -1;
 
 // Current slide index
 var slideIndex;
@@ -13,6 +17,8 @@ var slideshowTimeout = null;
 var slideshowSound = null;
 // Array of slides with class "tripPix"
 var slideshowElems = document.getElementsByClassName("tripPix");
+// Indicates if slideshow has valid from/to specified
+var slideshowFromTo = false;
 
 // Allow for override of default behavior in URL via query parameters
 if ("URLSearchParams" in window) {
@@ -25,6 +31,43 @@ if ("URLSearchParams" in window) {
   if (urlParam != null && urlParam.match(/^\d+$/)) {
     SLIDESHOW_INTERVAL = parseInt(urlParam);
   }
+  urlParam = urlParams.get('from');
+  if (/^\d+$/.test(urlParam)) {
+    SLIDESHOW_INDEX_FROM = parseInt(urlParam, 10);
+    if (isNaN(SLIDESHOW_INDEX_FROM) || SLIDESHOW_INDEX_FROM < 0) SLIDESHOW_INDEX_FROM = -1;
+  }
+  urlParam = urlParams.get('to');
+  if (/^\d+$/.test(urlParam)) {
+    SLIDESHOW_INDEX_TO = parseInt(urlParam, 10);
+    if (isNaN(SLIDESHOW_INDEX_TO) || SLIDESHOW_INDEX_TO < 0) SLIDESHOW_INDEX_TO = -1;
+  }
+  if (SLIDESHOW_INDEX_FROM > -1 || SLIDESHOW_INDEX_TO > -1) {
+    slideshowFromTo = true;
+  }
+}
+
+// reduceSlideshow removes elements from slideshowElems that are outside specified from/to range
+function reduceSlideshow() {
+  var i;
+
+  // Start at end so that remove() does not affect index
+  for (i = slideshowElems.length - 1; i > -1; i--) {
+    var path = slideshowElems[i].src;
+    var index = path.lastIndexOf('/');
+    if (index >= 0 && path.lastIndexOf('.jpg') > index) {
+      var file = path.substring(index + 1, path.lastIndexOf('.'));
+      if (file.match(/^[0-9]{3}_/)) {
+        num = parseInt(file.substring(0, 3), 10);
+        if (!isNaN(num)) {
+          if ((SLIDESHOW_INDEX_FROM > -1 && num < SLIDESHOW_INDEX_FROM) ||
+              (SLIDESHOW_INDEX_TO > -1 && num > SLIDESHOW_INDEX_TO)) {
+            slideshowElems[i].remove();
+          }
+        }
+      }
+    }
+  }
+  slideshowFromTo = false;
 }
 
 // hidePlayButton hides play/pause button for manual slideshows
@@ -88,6 +131,9 @@ function changePic(n) {
 
 // showPic displays slide where n is slide index
 function showPic(n) {
+  // Reduce slideshow to from/to range (one time only)
+  if (slideshowFromTo) reduceSlideshow();
+
   // Handle wrapping past end of slideshow
   if (n > slideshowElems.length) {slideIndex = 1}
 
@@ -109,6 +155,9 @@ function showPic(n) {
 
 // slideshow begins automatic slideshow
 function slideshow() {
+  // Reduce slideshow to from/to range (one time only)
+  if (slideshowFromTo) reduceSlideshow();
+
   slideIndex++;
 
   // Handle wrapping past end of slideshow
