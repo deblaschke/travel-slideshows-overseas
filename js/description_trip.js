@@ -93,6 +93,11 @@ function getDescription(path) {
           trip = dir[0].substring(1, 8) + " Winter Break";
           break;
 
+        // Two-year Winter Vacation cases
+        case "1996-97RoseParade":
+          trip = dir[0].substring(1, 8) + " Winter Vacation";
+          break;
+
         // Summer Vacation I cases
         case "2010Trip":
         case "2016Alaska":
