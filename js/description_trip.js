@@ -63,6 +63,7 @@ function getDescription(path) {
       switch (dir[0].slice(1, -1)) {
         // Summer Vacation cases
         case "1992Trip":
+        case "2006Trip":
         case "2007Trip":
         case "2008Trip":
         case "2009Trip":
