@@ -140,6 +140,9 @@ function getDescription(path) {
           break;
 
         // Special cases
+        case "1989Honeymoon":
+          trip = "1989 Honeymoon";
+          break;
         case "2019Berlin":
           trip = "2019 Business Trip I";
           break;
