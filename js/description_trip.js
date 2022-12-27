@@ -92,6 +92,7 @@ function getDescription(path) {
         // Spring Vacation cases
         case "1991Trip":
         case "1993Trip":
+        case "2022Colorado":
           trip = dir[0].substring(1, 5) + " Spring Vacation";
           break;
 
