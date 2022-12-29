@@ -127,6 +127,7 @@ function getDescription(path) {
         case "1991FallFoliage":
         case "1992FallFoliage":
         case "1993Homecoming":
+        case "1998Homecoming":
         case "2021Colorado":
           trip = dir[0].substring(1, 5) + " Autumn Vacation";
           break;
