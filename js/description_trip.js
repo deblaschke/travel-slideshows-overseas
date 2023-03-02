@@ -64,6 +64,9 @@ function getDescription(path) {
         // Summer Vacation cases
         case "1992Trip":
         case "1995Trip":
+        case "2002Trip":
+        case "2004Trip":
+        case "2005Trip":
         case "2006Trip":
         case "2007Trip":
         case "2008Trip":
