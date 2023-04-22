@@ -163,9 +163,6 @@ function getDescription(path) {
         case "2018Dusseldorf":
           trip = "Germany compilation";
           break;
-        case "2005Trip":
-          trip = "Yellowstone National Park compilation";
-          break;
       }
 
       // Append trip name if one exists
