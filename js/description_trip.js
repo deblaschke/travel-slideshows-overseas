@@ -82,6 +82,7 @@ function getDescription(path) {
         case "2020Trip":
         case "2021Trip":
         case "2022Trip":
+        case "2023Trip":
           trip = dir[0].substring(1, 5) + " Summer Vacation";
           break;
 
