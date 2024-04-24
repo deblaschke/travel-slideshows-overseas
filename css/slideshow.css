@@ -7,8 +7,8 @@
 #innerTable td {
   text-align: center;
   vertical-align: middle;
-  width: 674px; /* 95% of 674 is 640, 540 is 512 */
-  height: 674px;
+/*width: 674px; Now calculated dynamically to simulate responsiveness
+  height: 674px;*/
   border-style: groove;
   border-width: 3px;
   box-shadow: 5px 5px 5px #444444;
@@ -18,4 +18,18 @@
 img.tripPix {
   display: block;
   margin: auto;
+}
+
+button {
+  font-family: Arial;
+  vertical-align: top;
+  width: 2em;
+  height: 2em;
+}
+
+#slideName {
+  text-align: center;
+  vertical-align: middle;
+  display: block;
+  text-wrap: wrap;
 }

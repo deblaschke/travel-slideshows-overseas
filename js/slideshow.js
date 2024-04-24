@@ -19,6 +19,8 @@ var slideshowSound = null;
 var slideshowElems = document.getElementsByClassName("tripPix");
 // Indicates if slideshow has valid from/to specified
 var slideshowFromTo = false;
+// Indicates if mobile device (if not detected, default behavior occurs which is acceptable)
+var isMobileDevice = false;
 
 // Allow for override of default behavior in URL via query parameters
 if ("URLSearchParams" in window) {
@@ -28,8 +30,12 @@ if ("URLSearchParams" in window) {
     MANUAL_SLIDESHOW = true;
   }
   urlParam = urlParams.get('interval');
-  if (urlParam != null && urlParam.match(/^\d+$/)) {
-    SLIDESHOW_INTERVAL = parseInt(urlParam);
+  if (/^\d+$/.test(urlParam)) {
+    SLIDESHOW_INTERVAL = parseInt(urlParam, 10);
+  }
+  urlParam = urlParams.get('audio');
+  if (urlParam === 'off') {
+    SLIDESHOW_AUDIO = false;
   }
   urlParam = urlParams.get('from');
   if (/^\d+$/.test(urlParam)) {
@@ -213,4 +219,37 @@ if (SLIDESHOW_AUDIO) {
   if (promise) {
     promise.catch(function(error) { });
   }
+}
+
+// setPicDimensions sets dimensions of #innerTable based on window dimensions and device type
+function setPicDimensions() {
+  // Find smallest window dimension
+  var minDim = Math.min(window.innerHeight, window.innerWidth);
+
+  // Calculate smallest dimension based on smallest window dimension and device type
+  if (minDim > 842 && isMobileDevice) {
+    minDim = 842; /* 95% of 842 is 800 (bump up mimimum on mobile because width is large but screen is small) */
+  } else if (minDim > 674) {
+    minDim = 674; /* 95% of 674 is 640, which is actual slide resolution */
+  } else if (minDim < 269) {
+    minDim = 269; /* 95% of 269 is 256, which is as small as we want to go */
+  }
+
+  // Set innerTable dimensions (a square) to smallest dimension
+  document.getElementById("innerTable").style.width = minDim + 'px';
+  document.getElementById("innerTable").style.height = minDim + 'px';
+
+  // Set slideName width to smaller than innerTable width
+  document.getElementById("slideName").style.width = (minDim-2) + 'px';
+}
+
+// Handle window load
+window.onload = function() {
+  isMobileDevice = /iPhone|Android|BlackBerry/i.test(navigator.userAgent);
+  setPicDimensions();
+}
+
+// Handle window resize
+window.onresize = function() {
+  setPicDimensions();
 }
