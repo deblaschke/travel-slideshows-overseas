@@ -7,6 +7,7 @@ function getDescription(path) {
   // file is of format "nnn_picture-description"
 
   // Process valid paths (must have directory separator and .jpg extension)
+  path = decodeURI(path);
   var index = path.lastIndexOf('/');
   if (index >= 0 && path.lastIndexOf('.jpg') > index) {
     var file = path.substring(index + 1, path.lastIndexOf('.'));
@@ -54,15 +55,6 @@ function getDescription(path) {
               result = result.replace(/\[/g, '&');
               result = result.replace(/\]/g, ';');
             }
-
-            // Break up description over 80 characters in length into two lines
-            if (result.length > 80) {
-              index = result.lastIndexOf(" ", 80);
-              if (index >= 0) {
-                var newResult = result.substring(0, index) + "<BR>" + result.substring(index+1);
-                result = newResult;
-              }
-            }
           }
         }
       }
@@ -77,6 +69,11 @@ function getDescription(path) {
         result = result + " (" + dir[0].substring(1,5) + ")";
       }
     }
+  }
+
+  // Display space to occupy slideName span if description empty
+  if (result.length == 0) {
+    result = "&nbsp;";
   }
 
   return result;
