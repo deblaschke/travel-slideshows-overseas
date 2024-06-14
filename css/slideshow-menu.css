@@ -6,6 +6,14 @@ body {
   max-width: max-content;
 }
 
+hr {
+  background-image: url("../images/horzrule.gif");
+  border: 0;
+  height: 15px;
+  width: 100%;
+  background-size: cover;
+}
+
 img {
   border: 0;
 }
@@ -16,7 +24,7 @@ img {
   border: none;
   padding: 5px;
   border-spacing: 5px;
-  width: 50%;
+  width: 60%;
 }
 
 #outerTable tr {
@@ -49,10 +57,6 @@ img {
   color: #000000;
   width: 100%;
   height: 100%;
-}
-
-.menu-item-txt:hover {
-  cursor: pointer;
 }
 
 .menu-item-img {
@@ -92,7 +96,6 @@ img {
 }
 
 .menu-item-txt-size {
-  display: none;
   font-size: small;
 }
 
@@ -104,6 +107,14 @@ img {
 .menu-item-txt-camera {
   font-size: small;
   font-style: italic;
+}
+
+.hrTable {
+  width: 100%;
+}
+
+.hrTd {
+  width: 45%;
 }
 
 .compilations-hdr {
