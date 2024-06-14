@@ -70,6 +70,10 @@ img {
   vertical-align: middle;
 }
 
+.menu-item-txt:hover {
+  cursor: default;
+}
+
 .menu-item-txt, .menu-item-txt-static {
   text-align: left;
   vertical-align: top;
