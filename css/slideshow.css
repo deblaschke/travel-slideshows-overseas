@@ -19,6 +19,7 @@ body {
   vertical-align: middle;
   display: block;
   text-wrap: wrap;
+  text-shadow: 4px 4px 4px rgba(68, 68, 68, 0.5);
 }
 
 #innerTable td {
@@ -28,7 +29,7 @@ body {
   height: 674px;*/
   border-style: groove;
   border-width: 3px;
-  box-shadow: 5px 5px 5px #444444;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.5);
   background-color: #000000;
 }
 
