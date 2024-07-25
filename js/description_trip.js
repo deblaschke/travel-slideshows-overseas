@@ -79,6 +79,7 @@ function getDescription(path) {
           break;
 
         // Spring Break cases
+        case "1988Trip":
         case "2014WashDC":
         case "2016WashDC":
         case "2018Colorado":
