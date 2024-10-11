@@ -60,7 +60,6 @@ function getDescription(path) {
         case "2004Trip":
         case "2005Trip":
         case "2006Trip":
-        case "2007Trip":
         case "2008Trip":
         case "2009Trip":
         case "2011Trip":
@@ -109,6 +108,7 @@ function getDescription(path) {
 
         // Summer Vacation I cases
         case "1998Colorado":
+        case "2007Trip":
         case "2010Trip":
         case "2016Alaska":
           trip = dir[0].substring(1, 5) + " Summer Vacation I";
@@ -116,6 +116,7 @@ function getDescription(path) {
 
         // Summer Vacation II cases
         case "1998Trip":
+        case "2007Colorado":
         case "2010Wisconsin":
         case "2016Trip":
           trip = dir[0].substring(1, 5) + " Summer Vacation II";
