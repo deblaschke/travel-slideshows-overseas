@@ -53,6 +53,15 @@ function getDescription(path) {
 
       // Get trip name from dir
       switch (dir[0].slice(1, -1)) {
+        // Spring Vacation cases
+        case "1990Colorado":
+        case "1991Trip":
+        case "1993Trip":
+        case "2001Trip":
+        case "2022Colorado":
+          trip = dir[0].substring(1, 5) + " Spring Vacation";
+          break;
+
         // Summer Vacation cases
         case "1992Trip":
         case "1995Trip":
@@ -77,6 +86,22 @@ function getDescription(path) {
           trip = dir[0].substring(1, 5) + " Summer Vacation";
           break;
 
+        // Autumn Vacation cases
+        case "1990Trip":
+        case "1991FallFoliage":
+        case "1992FallFoliage":
+        case "1993Homecoming":
+        case "1998Homecoming":
+        case "1999Trip":
+        case "2021Colorado":
+          trip = dir[0].substring(1, 5) + " Autumn Vacation";
+          break;
+
+        // Two-year Winter Vacation cases
+        case "1996-97RoseParade":
+          trip = dir[0].substring(1, 8) + " Winter Vacation";
+          break;
+
         // Spring Break cases
         case "1988Trip":
         case "2014WashDC":
@@ -85,13 +110,10 @@ function getDescription(path) {
           trip = dir[0].substring(1, 5) + " Spring Break";
           break;
 
-        // Spring Vacation cases
-        case "1990Colorado":
-        case "1991Trip":
-        case "1993Trip":
-        case "2001Trip":
-        case "2022Colorado":
-          trip = dir[0].substring(1, 5) + " Spring Vacation";
+        // One-year Winter Break cases
+        case "2015NewMexico":
+        case "2023SanAntonio":
+          trip = dir[0].substring(1, 5) + " Winter Break";
           break;
 
         // Two-year Winter Break cases
@@ -99,11 +121,6 @@ function getDescription(path) {
         case "2014-15Arizona":
         case "2018-19Florida":
           trip = dir[0].substring(1, 8) + " Winter Break";
-          break;
-
-        // Two-year Winter Vacation cases
-        case "1996-97RoseParade":
-          trip = dir[0].substring(1, 8) + " Winter Vacation";
           break;
 
         // Summer Vacation I cases
@@ -120,22 +137,6 @@ function getDescription(path) {
         case "2010Wisconsin":
         case "2016Trip":
           trip = dir[0].substring(1, 5) + " Summer Vacation II";
-          break;
-
-        // Autumn Vacation cases
-        case "1990Trip":
-        case "1991FallFoliage":
-        case "1992FallFoliage":
-        case "1993Homecoming":
-        case "1998Homecoming":
-        case "1999Trip":
-        case "2021Colorado":
-          trip = dir[0].substring(1, 5) + " Autumn Vacation";
-          break;
-
-        // One-year Winter Break cases
-        case "2015NewMexico":
-          trip = dir[0].substring(1, 5) + " Winter Break";
           break;
 
         // Business Trip cases
