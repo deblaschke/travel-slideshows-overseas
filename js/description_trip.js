@@ -112,7 +112,6 @@ function getDescription(path) {
 
         // One-year Winter Break cases
         case "2015NewMexico":
-        case "2023SanAntonio":
           trip = dir[0].substring(1, 5) + " Winter Break";
           break;
 
@@ -158,6 +157,12 @@ function getDescription(path) {
         case "2017Dusseldorf":
         case "2018Dusseldorf":
           trip = "Germany compilation";
+          break;
+        case "2023SanAntonio":
+          trip = "2023 Bowl Trip";
+          break;
+        case "2024LosAngeles":
+          trip = "2024 Concert Trip";
           break;
       }
 
