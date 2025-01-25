@@ -119,6 +119,7 @@ function getDescription(path) {
         case "2013-14Florida":
         case "2014-15Arizona":
         case "2018-19Florida":
+        case "2024-25Trip":
           trip = dir[0].substring(1, 8) + " Winter Break";
           break;
 
