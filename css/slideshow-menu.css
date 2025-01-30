@@ -124,6 +124,7 @@ img {
 .compilations-hdr {
   font-size: x-large;
   font-weight: bold;
+  text-shadow: 3px 3px 3px rgba(68, 68, 68, 0.5);
 }
 
 .updates-txt {
