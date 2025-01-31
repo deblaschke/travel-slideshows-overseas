@@ -29,7 +29,7 @@ body {
   height: 674px;*/
   border-style: groove;
   border-width: 3px;
-  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.5);
+  box-shadow: 4px 4px 4px rgba(68, 68, 68, 0.5);
   background-color: #000000;
 }
 
@@ -43,6 +43,7 @@ button {
   vertical-align: top;
   width: 2em;
   height: 2em;
+  box-shadow: 4px 4px 4px rgba(68, 68, 68, 0.5);
 }
 
 #slideName {
