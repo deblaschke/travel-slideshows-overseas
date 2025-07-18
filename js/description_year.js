@@ -48,7 +48,7 @@ function getDescription(path) {
 
     // Append trip year if valid dir format
     var dir = path.match(/\/[0-9]{4}(-[0-9]{2})?[A-Z]*\//gi);
-    if (dir != null) {
+    if (result.length > 0 && dir != null) {
       if (dir[0].lastIndexOf('-') >= 5 && dir[0].length >= 8) {
         result = result + "<BR>(" + dir[0].substring(1,8) + ")";
       } else if (dir[0].length >= 5) {
